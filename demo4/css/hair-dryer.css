@@ -1,0 +1,65 @@
+html,body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid;
+    overflow: hidden;
+    box-sizing: border-box;   
+}
+.box .content {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+   border: 2px solid;
+}
+.boxOpen::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: repeating-radial-gradient(white 5%,hotpink 25%,white 10%);
+    transform: translateY(-100%);
+    animation: animate 2s linear infinite;
+}
+.span {
+    position: relative;
+    width: 35px;
+    height: 100px;
+    border: 2px solid;
+    margin-left: 85px;
+    box-sizing: border-box;
+    border-radius: 0 0 20px 20px;
+}
+.span .button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -6px;
+    width: 10px;
+    height: 20px;
+    border: 2px solid;
+    background: lightblue;
+    
+}
+.span .button.active{
+    background: red;
+}
+@keyframes animate {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

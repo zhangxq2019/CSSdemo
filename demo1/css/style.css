@@ -1,0 +1,46 @@
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 200px;
+    height: 60px;
+    line-height: 60px; 
+    border: 2px solid;
+    padding: 2px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 34px;
+    background: yellow;
+}
+
+/* 将每个字母都设定成inline-block,为了设置单独的动效 */
+.box span {
+    display: inline-block;
+    color: blue;
+    transition: 1s;
+}
+/*奇数字母向下移动，偶数字母向上移动 */
+.box span:nth-child(2n+1) {
+    transform: translateY(-100%);
+}
+.box span:nth-child(2n) {
+    transform: translateY(100%);
+}
+/* 为每个蓝色字母增加一个红色副本 */
+.box span::before {
+    content: attr(data-text);
+    position: absolute;
+    color: red;
+}
+/* 让增加的副本也交错显示 */
+.box span:nth-child(2n+1)::before{
+    transform: translateY(100%);
+} 
+.box span:nth-child(2n)::before{
+    transform: translateY(-100%);
+}
+/* 鼠标悬停时蓝色字母回到原点 */
+.box:hover span{
+    transform: translateY(0);
+}

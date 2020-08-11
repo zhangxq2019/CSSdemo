@@ -1,0 +1,39 @@
+html,body{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(pink,darkgrey);
+}
+.text {
+    position: relative;
+    font-size: 5em;
+    color: transparent;
+}
+.text::before,
+.text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: lightyellow;
+    transition: 0.2s;
+}
+.text::before {
+    /*background-color: darkgreen;*/
+    clip-path: polygon(0 0, 60% 0,30% 100%,0 100%);
+}
+.text::after {
+    /*background-color: darkblue;*/
+    clip-path: polygon(60% 0, 100% 0, 100% 100%, 30% 100%);
+}
+.text:hover::before {
+    top: -0.05rem;
+    left: -0.25rem;
+    transform: rotate(-5deg);
+}
+.text:hover::after {
+    top: 0.05rem;
+    left: 0.25rem;
+    transform: rotate(5deg);
+}

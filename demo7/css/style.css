@@ -1,0 +1,46 @@
+html,body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+    display: flex;
+}
+.box .inner {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 36px;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.box .inner:first-child{
+    transform-origin: left;
+    transform: perspective(345px) rotateY(-60deg);
+    background: #acacac ;
+    color: pink;
+}
+.box .inner:last-child{
+    transform-origin: right;
+    transform: perspective(345px) rotateY(60deg);
+    background: lightgray;
+    color: #ff7d93;
+}
+.box .inner span{
+    position: absolute;
+    animation: animate 2s linear infinite;
+}
+.box .inner:first-child span{
+    animation-delay: 1s;
+    left: -100%;
+}
+@keyframes animate {
+    from {
+        left: 100%;
+    }
+    to {
+        left: -100%;
+    }
+}

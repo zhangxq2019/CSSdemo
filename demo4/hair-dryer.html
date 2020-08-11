@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/hair-dryer.css">
+</head>
+
+<body>
+    <div class="container">
+    <div class="box" id="box">
+        <div class="content"></div>
+    </div>
+    <div class="span">
+        <div class="button"></div>
+    </div>
+    </div>
+    <script>
+        var toggleBtn = document.querySelector('.button')
+        var box = document.querySelector('#box')
+        toggleBtn.onclick = function () {
+            toggleBtn.classList.toggle('active');
+            box.classList.toggle('boxOpen')
+           
+        }
+    </script>
+</body>
+
+</html>

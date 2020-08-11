@@ -1,0 +1,74 @@
+html,body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+.box {
+    position: relative;
+    width: 300px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    letter-spacing: 10px;
+    font-size: 30px;
+    color: #fff;
+    /* border: 1px solid #ccc; */
+    filter: blur(2px);
+    transition: 0.5s;
+}
+.box:hover{
+    filter: blur(0.2px);
+}
+.box::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 1px solid red;
+    border-radius: 50%;
+    left: 90px;
+    filter: opacity(0);
+}
+.box span:not(:first-child) {
+    position: absolute;
+    background: red;
+    filter: opacity(0);
+}
+.box span.top,
+.box span.bottom {
+    width: 1px;
+    height: 100px;
+    left: 47%;
+}
+.box span.top {
+    top: -100px;
+}
+.box span.bottom {
+    top: 100px;
+}
+.box span.left,
+.box span.right {
+    height: 1px;
+    width: 100px;
+    top: 50%;
+}
+.box span.left {
+    left: -10px;
+}
+.box span.right {
+    right: 10px;
+}
+.box:hover::before,
+.box:hover span:not(:first-child) {
+    animation: aim 2s linear infinite alternate;
+}
+@keyframes aim{
+    from {
+        filter: opacity(0.2)
+    }
+    to {
+        filter: opacity(0.8);
+    }
+}

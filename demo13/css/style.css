@@ -1,0 +1,87 @@
+html,body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.coffee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    /*height: calc(9em + 1em + 2em);*/
+}
+.coffee .cup {
+    width: 250px;
+    height: 200px;
+    position: relative;
+    background: #bc0013;
+    border-bottom-left-radius: 120px;
+    border-bottom-right-radius: 120px;
+}
+.coffee .cup::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: -22px;
+    background: chocolate;
+    border: 8px solid #bc0013;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+.coffee .cup::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 10px solid #bc0013;
+    border-radius: 50%;
+    top: 20%;
+    left: 80%;
+}
+.coffee .plate{
+    position: absolute;
+    width: 400px;
+    height: 50px;
+    background: #bc0013;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    bottom: -20px;
+}
+.coffee .vapor {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+.coffee .vapor span {
+    width: 8px;
+    background: chocolate;
+    filter: opacity(0);
+    animation: showvapor 2s linear infinite;
+}
+.coffee .vapor span:nth-child(1){
+    animation-delay: 0.1s;
+}
+.coffee .vapor span:nth-child(2){
+    animation-delay: 0.2s;
+}
+.coffee .vapor span:nth-child(3){
+    animation-delay: 0.4s;
+}
+.coffee .vapor span:nth-child(4){
+    animation-delay: 0.3s;
+}
+
+@keyframes showvapor {
+    from {
+        transform: translateY(0);
+        filter: opacity(1) blur(8px);
+    }
+    to {
+        transform: translateY(-30px);
+        filter: opacity(0) blur(10px);
+    }
+}

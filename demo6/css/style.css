@@ -1,0 +1,41 @@
+html,body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+:root {
+    --color1: pink;
+    --color2: #ee5770;
+    --color3: #c74f63;
+    --color4: #f36d84;
+}
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    transform: rotate(45deg);
+}
+.container span {
+    border: 50px solid;
+    border-color: var(--color1) var(--color2) var(--color3) var(--color4);
+}
+.container span:first-child {
+    border-color: transparent var(--color2) var(--color3) transparent;
+}
+.container span:not(:first-child){
+    animation: animate 2s linear infinite;
+}
+@keyframes animate {
+    0% {
+        border-color: var(--color1) var(--color2) var(--color3) var(--color4);
+    }
+    25% {
+        border-color: var(--color4) var(--color3) var(--color2) var(--color1);
+    }
+    50% {
+        border-color: var(--color3) var(--color2) var(--color1) var(--color4);
+    }
+    75% {
+        border-color: var(--color2) var(--color1) var(--color4) var(--color3);
+    }
+}
